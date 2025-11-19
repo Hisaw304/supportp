@@ -1,0 +1,1044 @@
+:root {
+  --rm-yellow: #f6c300;
+  --rm-gray-900: #414141;
+  --rm-white: #ffffff;
+  --rm-blue: #0470ff;
+  --rm-body-padding: 28px;
+  --rm-radius: 14px;
+  --rm-shadow: 0 18px 40px rgba(16, 24, 40, 0.08);
+}
+
+/* baseline reset & typography */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--rm-white);
+  color: var(--rm-gray-900);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container-wrap {
+  max-width: 1180px;
+  margin: 32px auto;
+  padding: 0 var(--rm-body-padding);
+  box-sizing: border-box;
+}
+
+/* logo / marks */
+.logo-mark,
+.footer-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: var(--rm-gray-900);
+  font-weight: 700;
+}
+
+/* nav link underline animation */
+.nav-link {
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0%;
+  background: var(--rm-yellow);
+  transition: width 220ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+/* footer links */
+.footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: var(--rm-yellow);
+  transition: width 200ms ease-in-out;
+}
+.footer-link:hover::after,
+.footer-link:focus::after {
+  width: 100%;
+}
+
+/* subtle input styles */
+.search-input {
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  color: white;
+}
+
+/* hamburger fallback styling (if used elsewhere) */
+.hamburger {
+  display: inline-flex;
+  gap: 4px;
+}
+
+/* focus-visible */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(246, 195, 0, 0.16);
+  border-radius: 6px;
+}
+
+/* reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* visible focus ring for keyboard users */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(246, 195, 0, 0.16);
+  border-radius: 8px;
+}
+/* rounded card radius like screenshot */
+a.prize-card {
+  border-radius: 12px;
+}
+
+/* ensure the thin black bar doesn't clip rounded corners */
+.prize-card .top-section,
+.prize-card .bottom-section {
+  overflow: visible;
+}
+
+/* focus ring for keyboard users */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(246, 195, 0, 0.12);
+  border-radius: 8px;
+}
+/* overlay backdrop color */
+.findout-overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* popup-bg fallback */
+.popup-bg {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* popup container max height */
+.findout-popup {
+  max-height: 80vh;
+}
+
+/* small screen tweaks */
+@media (max-width: 640px) {
+  .findout-popup {
+    margin: 0 12px;
+  }
+} /* overlay already high z-index; portal ensures it's above everything */
+/* prize card border style used in your HTML */
+.e-card-middle__border {
+  border: 4px solid var(--rm-yellow);
+  border-radius: 12px;
+}
+
+/* middle streak banner (if not fully styled by Tailwind) */
+.e-card-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--rm-yellow);
+  color: var(--rm-gray-900);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+/* pill banner fallback styles */
+.pill-banner img {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+/* small grid wrapper like in your snippet */
+.elevate-grid-card-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  row-gap: 40px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* responsive adjustments */
+@media (max-width: 1024px) {
+  .elevate-grid-card-layout {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
+  }
+}
+@media (max-width: 640px) {
+  .elevate-grid-card-layout {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 18px;
+  }
+}
+
+/* ensure modal z-index and focus ring helper (if you use focus-visible polyfill) */
+.findout-overlay {
+  /* portal sets high z-index; keep this for fallback */
+}
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(246, 195, 0, 0.12);
+  border-radius: 6px;
+}
+/* larger card container style */
+.prize-card-wide {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--rm-white);
+  box-shadow: var(--rm-shadow);
+  transition: transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 200ms ease;
+  will-change: transform;
+}
+
+/* hover elevation */
+.prize-card-wide:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--rm-shadow-strong);
+}
+
+/* subtle rounded image corners to match screenshot */
+.prize-card-wide .top-section {
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background-color: #e9e9e9;
+  /* default height; adjusted responsively below */
+  height: 420px;
+}
+
+/* responsive top-section heights */
+@media (max-width: 1024px) {
+  .prize-card-wide .top-section {
+    height: 360px;
+  }
+}
+@media (max-width: 640px) {
+  .prize-card-wide .top-section {
+    height: 280px;
+  }
+}
+
+/* ensure image fallback covers area */
+.prize-card-wide .top-section img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* pill banner (deadline) */
+.pill-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: var(--rm-yellow);
+  color: var(--rm-gray-900);
+  box-shadow: 0 6px 18px rgba(3, 8, 18, 0.12);
+}
+
+/* pill icon sizing if using <img> fallback */
+.pill-banner img,
+.pill-banner svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* thin promo bar that sits across bottom of top image */
+.prize-card-wide .top-section .promo-bar,
+.prize-card-wide .top-section .promo-bar * {
+  box-sizing: border-box;
+}
+.prize-card-wide .top-section .promo-bar {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* optional middle streak banner (if used) */
+.e-card-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--rm-yellow);
+  color: var(--rm-gray-900);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+/* bottom section (content area) */
+.prize-card-wide .bottom-section {
+  padding: 28px 32px;
+  background: var(--rm-white);
+}
+
+/* prize title */
+.prize-card-wide .prize-card-title {
+  margin: 0;
+  font-size: 28px; /* adjusts below with media queries */
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #0b1220;
+  font-weight: 800;
+}
+
+/* responsive title sizes */
+@media (min-width: 768px) {
+  .prize-card-wide .prize-card-title {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .prize-card-wide .prize-card-title {
+    font-size: 36px;
+  }
+}
+
+/* subtitle / small meta text */
+.prize-card-wide .prize_card-title {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* CTA (right-side) */
+.prize-card-wide .view-prize-btn.-cta,
+.prize-card-wide a.cta {
+  display: inline-block;
+  background: #1075df;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(16, 117, 223, 0.18);
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+}
+
+.prize-card-wide .view-prize-btn.-cta:hover,
+.prize-card-wide a.cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.98;
+}
+
+/* layout: bottom flex gap */
+.prize-card-wide .bottom-section .flex {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* tweak for single-card container in grid */
+.prize-grid-center {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 12px;
+}
+
+/* focus-visible for accessibility */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(246, 195, 0, 0.12);
+  border-radius: 8px;
+}
+
+/* elevated grid layout (keeps single card centered if used) */
+.elevate-grid-card-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  row-gap: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 12px;
+}
+
+/* responsive collapse */
+@media (max-width: 1024px) {
+  .elevate-grid-card-layout {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
+}
+@media (max-width: 640px) {
+  .elevate-grid-card-layout {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 20px;
+  }
+}
+
+/* helper: when only one child, center and cap width */
+.elevate-grid-card-layout:has(> :only-child) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* small helpers */
+.no-style {
+  text-decoration: none;
+  color: inherit;
+}
+.pill-banner {
+  cursor: default;
+}
+
+/* ensure promo bar doesn't clip rounded corners on some browsers */
+.prize-card-wide .top-section > .promo-bar {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* small print */
+.prize-card-wide .bottom-section p {
+  margin: 0;
+}
+
+/* reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .prize-card-wide,
+  .prize-card-wide * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+/* AboutBanner specific styles */
+.elevate-about-banner {
+  color: #111;
+  background-color: #f6c300;
+}
+
+.elevate-about-banner .section-title {
+  margin: 0;
+  color: #111;
+}
+
+/* Info card */
+.elevate-about-banner .info-card img {
+  /* images are different widths, preserve aspect with a fixed height */
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Text blocks inside card */
+.elevate-about-banner .info-card p {
+  margin: 0;
+  color: #111;
+  line-height: 1.05;
+}
+
+/* Slightly increase emphasis on the 2nd line */
+.elevate-about-banner .info-card p .font-extrabold,
+.elevate-about-banner .info-card p strong {
+  font-weight: 800;
+  display: inline-block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .elevate-about-banner {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .elevate-about-banner .section-title {
+    text-align: center;
+  }
+  .elevate-about-banner .section-details {
+    margin-top: 1.25rem;
+  }
+  .elevate-about-banner .info-card {
+    justify-content: center;
+    text-align: center;
+  }
+  .elevate-about-banner .info-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Stronger typography on large screens */
+@media (min-width: 1024px) {
+  .elevate-about-banner .section-title {
+    font-size: 1.125rem;
+  }
+  .elevate-about-banner .info-card p {
+    font-size: 1rem;
+  }
+}
+/* BREAKOUT / FULL-BLEED helper — paste after Tailwind and your custom vars */
+.full-bleed {
+  position: relative; /* allow offsets */
+  left: 50%; /* move to page center */
+  right: 50%;
+  margin-left: -50vw; /* pull to left edge of viewport */
+  margin-right: -50vw; /* pull to right edge */
+  width: 100vw; /* full viewport width */
+  box-sizing: border-box;
+  /* if you use a site-wide horizontal scrollbar glitch, add: overflow-x: hidden; */
+}
+
+/* Optional: keep inner content visually constrained */
+.inner-content {
+  max-width: 1100px; /* or keep Tailwind's max-w-7xl in className */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* LEFT align on wide screens (start at left), normal centered on small/medium */
+@media (min-width: 1200px) {
+  .container-wrap {
+    margin-left: 40px;
+    margin-right: auto;
+  } /* left-aligned start */
+}
+
+/* prize section (top card) */
+.prize-section {
+  background: var(--rm-white);
+  border-radius: var(--rm-radius);
+  box-shadow: var(--rm-shadow);
+  padding: 22px;
+  overflow: visible;
+}
+
+/* layout for top card */
+.prize-title-area {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.prize-title-area .left {
+  flex: 0 0 48%;
+  min-width: 320px;
+  max-width: 640px;
+}
+.image-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bg-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16/10;
+}
+
+/* pill top-left (date) */
+.pill-banner.pill-top-left {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--rm-yellow);
+  color: var(--rm-gray-900);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.pill-clock {
+  width: 16px;
+  height: 16px;
+}
+.pill-text {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* right column meta */
+.prize-title-area .right {
+  flex: 1 1 44%;
+  min-width: 300px;
+  padding-top: 2px;
+}
+.big-title {
+  font-size: 28px;
+  line-height: 1.05;
+  margin: 6px 0 10px;
+  color: var(--rm-gray-900);
+  font-weight: 800;
+}
+
+/* deadlines/meta */
+.deadlines {
+  margin-top: 8px;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.thin-hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+.dates-heading {
+  margin: 6px 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--rm-gray-900);
+}
+.deadline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.meta-icon {
+  color: var(--rm-gray-900);
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+.meta-text {
+  color: #222;
+  margin: 0;
+  font-size: 15px;
+  flex: 1;
+}
+
+/* blue help/question icon */
+.help-btn {
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.help-icon {
+  color: var(--rm-blue);
+  width: 18px;
+  height: 18px;
+}
+
+/* entry pill */
+.pill-wrapper {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.entryRemaining_banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--rm-yellow);
+  color: var(--rm-gray-900);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+.entry-icon {
+  font-size: 16px;
+}
+.entry-text {
+  font-size: 14px;
+}
+
+/* CTA and links */
+.cta-links-and-button {
+  margin-top: 16px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.enter-btn {
+  background: var(--rm-blue);
+  color: #fff;
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  box-shadow: 0 14px 40px rgba(4, 112, 255, 0.18);
+  text-decoration: none;
+  display: inline-block;
+}
+.enter-btn:hover {
+  transform: translateY(-2px);
+  transition: transform 0.12s ease;
+}
+.link-list {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.rule-link {
+  color: var(--rm-blue);
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* prize details big */
+.prize-info-wrapper {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed #eee;
+}
+.section-title {
+  font-size: 28px;
+  margin: 6px 0 14px;
+  font-weight: 800;
+  color: var(--rm-gray-900);
+}
+.prize-details.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.prize-details dt {
+  color: #666;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.prize-details dd {
+  margin: 6px 0 12px;
+  color: #111;
+}
+
+/* divider between main and below */
+.section-divider {
+  height: 18px;
+  margin: 28px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* small-cards section heading + intro */
+.small-cards-section {
+  margin-top: 0;
+}
+.small-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--rm-gray-900);
+  margin: 0 0 8px;
+}
+.small-section-intro p {
+  margin: 0 0 18px;
+  color: #333;
+  font-size: 15px;
+}
+
+/* thumbnail grid: responsive 1/2/3 */
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 22px;
+}
+@media (min-width: 640px) {
+  .thumbnail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .thumbnail-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Thumbnail - fixed, single-source-of-truth ---------- */
+
+/* thumbnail card */
+.thumbnail-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* container sets aspect ratio (3:2) */
+.thumbnail-media {
+  position: relative;
+  width: 100%;
+  padding-bottom: 66.6667%; /* 3:2 aspect ratio */
+  overflow: hidden;
+  background: #eee;
+}
+
+/* image fills the container */
+.thumbnail-media img.thumbnail-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* remove any other .thumbnail-image standalone rules (they conflict) */
+.thumbnail-image {
+}
+
+/* thumb pill */
+.thumb-pill {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: var(--rm-yellow);
+  color: var(--rm-gray-900);
+  padding: 8px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+.thumb-pill-icon {
+  width: 14px;
+  height: 14px;
+}
+.thumb-pill-text {
+  font-size: 13px;
+}
+
+/* badge */
+.thumbnail-media .badge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #6b21a8;
+  color: #fff;
+  padding: 6px 8px;
+  font-weight: 800;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* body of thumbnail */
+.thumbnail-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.thumbnail-title {
+  font-weight: 800;
+  color: var(--rm-gray-900);
+  margin: 0;
+  font-size: 16px;
+}
+.thumbnail-excerpt {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 40px;
+}
+.thumbnail-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.view-btn {
+  background: var(--rm-blue);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+}
+.view-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+  transition: all 0.12s ease;
+}
+.details-link {
+  color: #666;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .prize-title-area {
+    flex-direction: column;
+  }
+  .prize-title-area .left {
+    width: 100%;
+    min-width: 0;
+  }
+  .big-title {
+    font-size: 22px;
+  }
+  .bg-img {
+    aspect-ratio: 16/9;
+  }
+}
+/* about.css
+   Styles depend on your existing :root variables:
+   --rm-yellow, --rm-gray-900, --rm-white, --rm-blue, --rm-radius, --rm-shadow
+*/
+
+/* subtle page shadow helper */
+.shadow-about {
+  box-shadow: var(--rm-shadow);
+}
+
+/* hero visual */
+.visual-box {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 112, 255, 0.06),
+    rgba(246, 195, 0, 0.04)
+  );
+  border-radius: 12px;
+  border: 1px solid rgba(4, 112, 255, 0.06);
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* support cards */
+.support-card {
+  background: linear-gradient(
+    180deg,
+    rgba(246, 195, 0, 0.02),
+    rgba(4, 112, 255, 0.01)
+  );
+  border: 1px solid rgba(16, 24, 40, 0.03);
+}
+
+/* prize card wrapper */
+.prizecard-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(250, 250, 250, 0.98)
+  );
+}
+
+/* CTA container */
+.cta-card {
+  min-width: 300px;
+}
+
+/* Buttons (use your CSS variables for colors) */
+.btn-primary,
+.btn-primary-large {
+  background: var(--rm-blue);
+  color: var(--rm-white);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(4, 112, 255, 0.07);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.btn-primary:hover,
+.btn-primary-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(4, 112, 255, 0.09);
+}
+
+/* Smaller secondary button */
+.btn-secondary {
+  background: transparent;
+  color: var(--rm-blue);
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(4, 112, 255, 0.12);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* text helpers */
+.lead {
+  color: var(--rm-gray-900);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* subtle borders */
+.border {
+  border: 1px solid rgba(16, 24, 40, 0.03);
+}
+
+/* responsive tweaks */
+@media (min-width: 768px) {
+  .lead {
+    font-size: 1.05rem;
+  }
+}
+
+/* Accessibility / readibility */
+section h2,
+section h3,
+section h4 {
+  color: var(--rm-gray-900);
+}
+
+/* small utility */
+.inline-center {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
