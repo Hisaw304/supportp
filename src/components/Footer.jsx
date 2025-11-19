@@ -141,21 +141,18 @@ export default function Footer() {
 
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://facebook.com"
                 aria-label="Facebook"
                 className="p-2 rounded-md hover:bg-[rgba(255,255,255,0.02)]"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com"
                 aria-label="Twitter"
                 className="p-2 rounded-md hover:bg-[rgba(255,255,255,0.02)]"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com"
                 aria-label="Instagram"
                 className="p-2 rounded-md hover:bg-[rgba(255,255,255,0.02)]"
               >

@@ -3,7 +3,7 @@ import { Clock } from "lucide-react";
 import prizeImg from "../assets/MegaPrizeSuperprize_image_1.png"; // <-- local asset import
 
 export default function PrizeCardLarge({
-  link = "https://rewards.pch.com/superprize/prize/15mmmptv25",
+  link = "/contact",
   image = prizeImg,
   daysLeft = "3 Days Left",
   promoText = "Weekly Lotto Style Drawing",

@@ -7,7 +7,7 @@ import fundFutureImg from "../assets/wk4310kFundYourFuture_image_1.png";
  */
 export default function PrizeGridSection() {
   const card = {
-    link: "https://rewards.pch.com/weekly-grand-prize/prize/10k-fund-future",
+    link: "/contact",
     image: fundFutureImg,
     pill: "Oct 23",
     title: "Win $10,000 To Fund Your Future",

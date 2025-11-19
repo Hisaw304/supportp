@@ -3,7 +3,7 @@ import { Clock } from "lucide-react";
 import prizeImg from "../assets/wk4210kCashBoost_image_1.jpg"; // <-- put this in src/assets
 
 export default function PrizeCardWithStreak({
-  link = "https://rewards.pch.com/weekly-grand-prize/prize/10k-cash-boost-25",
+  link = "/contact",
   image = prizeImg,
   daysLeft = "1 Day Left",
   streakText = "Streak Bonus Now Live!",
@@ -59,7 +59,6 @@ export default function PrizeCardWithStreak({
 
           {/* middle streak banner */}
           <div className="e-card-middle bg-[var(--rm-yellow)] text-[var(--rm-gray-900)] font-medium text-lg py-2 flex items-center justify-center gap-3">
-            {/* You can use an image or lucide flame icon; user requested assets, so text only or replace with asset */}
             <img src="/images/streak-flame-sm.svg" alt="" className="h-5 w-5" />
             <span>{streakText}</span>
           </div>

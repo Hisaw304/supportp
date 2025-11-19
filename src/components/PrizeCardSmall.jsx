@@ -7,7 +7,7 @@ import { Clock } from "lucide-react";
  * - Props: link, image, pill, title, subtitle, ctaText, gaAttrs
  */
 export default function PrizeCardSmall({
-  link = "#",
+  link = "/contact",
   image = "",
   pill = "",
   title = "Prize Title",
