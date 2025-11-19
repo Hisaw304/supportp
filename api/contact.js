@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     // Send email
     await transporter.sendMail({
       from: `"PCH Support" <${process.env.SMTP_USER}>`,
-      to: "info@pch.com",
+      to: "info@supportpch.com",
       subject: `New Support Request — Ticket ${ticketId}`,
       html: `
         <h2>PCH Support Contact Form</h2>
