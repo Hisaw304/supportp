@@ -1042,3 +1042,99 @@ section h4 {
   align-items: center;
   gap: 8px;
 }
+.payment-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.payment-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--rm-gray-900);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.payment-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.payment-card {
+  background: #fff;
+  border-radius: var(--rm-radius);
+  padding: 32px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.payment-card h2 {
+  color: var(--rm-blue);
+  margin-bottom: 20px;
+}
+
+.payment-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-card input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.payment-card input:focus {
+  outline: none;
+  border-color: var(--rm-yellow);
+  box-shadow: 0 0 0 4px rgba(246, 195, 0, 0.2);
+}
+
+.payment-card button {
+  background: var(--rm-blue);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.payment-card button:hover {
+  opacity: 0.9;
+}
+
+.btc-address {
+  background: #f8f8f8;
+  padding: 14px;
+  border-radius: 10px;
+  word-break: break-all;
+  margin-bottom: 12px;
+}
+
+.copy-btn {
+  background: var(--rm-yellow) !important;
+  color: #000 !important;
+  margin-bottom: 20px;
+}
+
+.success-box {
+  background: #dcfce7;
+  color: #166534;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.error-box {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+}

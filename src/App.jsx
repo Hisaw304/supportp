@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrizePage from "./pages/PrizePage";
+import Payment from "./pages/Payment";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/prize" element={<PrizePage />} />
+          <Route path="/payment" element={<Payment />} />
           {/* Add more routes here if needed */}
         </Routes>
       </main>

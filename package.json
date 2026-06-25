@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
+    "formidable": "^3.5.4",
     "lucide-react": "^0.545.0",
     "nodemailer": "^7.0.9",
     "react-dom": "^19.1.1",
