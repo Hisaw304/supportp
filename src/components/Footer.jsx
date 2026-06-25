@@ -54,7 +54,7 @@ export default function Footer() {
                   Publishers Clearing House
                 </div>
                 <div className="text-sm text-[rgba(255,255,255,0.6)]">
-                  Play, answer & win — simple.
+                  Play, answer & win simple.
                 </div>
               </div>
             </div>
