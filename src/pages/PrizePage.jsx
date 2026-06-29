@@ -53,7 +53,6 @@ export default function PrizePage() {
           <section className="target-area" id="pch-section-content-1">
             <article className="prize-section">
               <div className="prize-title-area">
-                {/* LEFT: Image */}
                 <div className="left">
                   <div className="image-wrap">
                     <img
