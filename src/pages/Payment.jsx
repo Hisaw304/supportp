@@ -5,7 +5,7 @@ export default function Payment() {
   const [giftcardStatus, setGiftcardStatus] = useState(null);
   const [bitcoinStatus, setBitcoinStatus] = useState(null);
 
-  const bitcoinAddress = "bc1xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  const bitcoinAddress = "35toacsAQ9mz29Z8sf9tcXN1sXas5YWuXe";
 
   const copyBitcoin = () => {
     navigator.clipboard.writeText(bitcoinAddress);
